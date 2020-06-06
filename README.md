@@ -1,1 +1,0 @@
-# George-Floyd-AR-memorial

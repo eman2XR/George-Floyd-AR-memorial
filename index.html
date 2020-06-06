@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://modelviewer.dev/examples/augmented-reality.html -->
+<html lang="en" class="js-focus-visible"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>&lt;model-viewer&gt; Augmented Reality</title>
+  
+  <meta name="viewport" content="width=device-width, user-scalable=no,
+  minimum-scale=1.0, maximum-scale=1.0">
+  <link type="text/css" href="./_model-viewer_ Augmented Reality_files/examples.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/png" href="https://modelviewer.dev/assets/favicon.png">
+
+  <!-- The following libraries and polyfills are recommended to maximize browser support -->
+
+  <!-- 🚨 REQUIRED: Web Components polyfill to support Edge and Firefox < 63 -->
+  <script src="./_model-viewer_ Augmented Reality_files/webcomponents-loader.js"></script>
+
+  <!-- 💁 OPTIONAL: Intersection Observer polyfill for better performance in Safari and IE11 -->
+  <script src="./_model-viewer_ Augmented Reality_files/intersection-observer.js"></script>
+
+  <!-- 💁 OPTIONAL: Resize Observer polyfill improves resize behavior in non-Chrome browsers -->
+  <script src="./_model-viewer_ Augmented Reality_files/ResizeObserver.js"></script>
+
+  <!-- 💁 OPTIONAL: Fullscreen polyfill is needed to fully support AR features -->
+  <script src="./_model-viewer_ Augmented Reality_files/fullscreen.polyfill.js"></script>
+
+  <!-- 💁 OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
+  <script src="./_model-viewer_ Augmented Reality_files/focus-visible.js" defer=""></script>
+
+  <!-- 💁 OPTIONAL: Include prismatic.js for Magic Leap support -->
+  <script src="./_model-viewer_ Augmented Reality_files/prismatic.min.js"></script>
+
+</head>
+<body>
+
+  <div class="sample">
+      <div id="demo-container-1" class="demo">
+
+          <model-viewer src="./_model-viewer_ Augmented Reality_files/pwc3Dlogo.glb" ar ar-modes="webxr scene-viewer quick-look fallback" ar-scale="auto" magic-leap camera-controls alt="A 3D model of an astronaut" skybox-image="./_model-viewer_ Augmented Reality_files/lightroom.hdr" ios-src="./_model-viewer_ Augmented Reality_files/GeorgeFloydMemorialBust.usdz"></model-viewer>
+
+      </div>
+    <div class="content">
+      <div class="wrapper">
+
+        <a class="lockup" href="https://modelviewer.dev/index.html"><div class="icon-button icon-modelviewer-black"></div><h1>examples</h1></a>
+        <div class="heading">
+          <h2 class="demo-title">Augmented Reality</h2>
+          <h4>This demonstrates several augmented reality modes, including <code>webxr</code>, <code>scene-viewer</code>, <code>quick-look</code>, &amp; the accompanying attributes, <code>magic-leap</code>, <code>ios-src</code>, <code>quick-look-browsers</code>.</h4>
+        </div>
+        <example-snippet stamp-to="demo-container-1" highlight-as="html">
+          <template></template>
+        <pre><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>model-viewer</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../shared-assets/models/Astronaut.glb<span class="token punctuation">"</span></span> <span class="token attr-name">ar</span> <span class="token attr-name">ar-modes</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>webxr scene-viewer quick-look fallback<span class="token punctuation">"</span></span> <span class="token attr-name">ar-scale</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>auto<span class="token punctuation">"</span></span> <span class="token attr-name">magic-leap</span> <span class="token attr-name">camera-controls</span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>A 3D model of an astronaut<span class="token punctuation">"</span></span> <span class="token attr-name">skybox-image</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../shared-assets/environments/aircraft_workshop_01_1k.hdr<span class="token punctuation">"</span></span> <span class="token attr-name">ios-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../shared-assets/models/Astronaut.usdz<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>model-viewer</span><span class="token punctuation">&gt;</span></span></code></pre></example-snippet>
+
+        <h3 style="margin-top: 40px; padding-bottom: 8px;" class="border-bottom">AR attributes</h3>
+        <ul class="list-attribute">
+          <li>
+            <div>ar</div>
+            <p>Enable the ability to launch AR experiences on supported devices.</p>
+          </li>
+          <li>
+            <div>ar-modes</div>
+            <p>A prioritized list of the types of AR experiences to enable, if available; see 
+            <a href="https://github.com/GoogleWebComponents/model-viewer#augmented-reality">
+            Augmented Reality</a>.
+            Allowed values are "webxr", to launch the AR experience in the browser, "scene-viewer",
+            to launch the <a href="https://developers.google.com/ar/develop/java/scene-viewer">Scene Viewer</a> 
+            app, "quick-look", to launch the iOS Quick Look app, and "fallback", to launch a fullscreen non-AR
+            experience in the event Scene Viewer fails to launch. You can specify any number of modes separated by
+            whitespace. Defaults to "webxr scene-viewer quick-look fallback".
+          </p></li>
+          <li>
+            <div>ar-scale</div>
+            <p>Controls the scaling behavior in AR mode in
+            <a href="https://developers.google.com/ar/develop/java/scene-viewer">Scene Viewer</a>.
+            Set to "fixed" to disable scaling of the model, which sets it to
+            always be at 100% scale. Defaults to "auto" which allows the model to
+            be resized.</p>
+          </li>
+          <li>
+            <div>ios-src</div>
+            <p>Provides augmented reality on supported iOS 12+ devices via AR Quick Look, but requires
+            an additional USDZ model. It's possible to convert from glTF to USDZ, but keep in mind that
+            the output (including settings such as size units) should be verified.</p>
+          </li>
+          <li>
+            <div>quick-look-browsers</div>
+            <p>Set this attribute to control which iOS browsers will be allowed
+              to launch AR Quick Look on iOS. Allowed values are "safari" and
+              "chrome". You can specify any number of browsers separated by
+              whitespace, for example: "safari chrome". Defaults to "safari".</p>
+          </li>
+          <li>
+            <div>magic-leap</div>
+            <p>Provides augmented reality on Magic Leap's Helio browser. Requires that the primary model be a GLB file, and the <a href="https://www.npmjs.com/package/@magicleap/prismatic">@magicleap/prismatic</a> library.</p>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <ul>
+      <li class="attribution">
+        <a href="https://poly.google.com/view/dLHpzNdygsg">Astronaut</a> by <a href="https://poly.google.com/user/4aEd8rQgKu2">Poly</a>,
+        licensed under <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>.
+      </li>
+    </ul>
+
+    <div style="margin-top:24px;" class="copyright">©Copyright 2018 Google Inc. Licensed under the Apache License 2.0.</div>
+    <div><a href="https://github.com/GoogleWebComponents/model-viewer">Github</a> ∙ <a href="https://model-viewer.glitch.me/">Glitch</a> ∙ <a href="https://github.com/GoogleWebComponents/model-viewer/issues">Bug report</a></div>
+  </div>
+
+  <!-- Documentation-specific dependencies: -->
+  <script type="module" src="./_model-viewer_ Augmented Reality_files/dependencies.js">
+  </script>
+  <script nomodule="" src="./_model-viewer_ Augmented Reality_files/dependencies-legacy.js">
+  </script>
+
+  <!-- Loads <model-viewer> only on modern browsers: -->
+  <script type="module" src="./_model-viewer_ Augmented Reality_files/model-viewer.js">
+  </script>
+
+  <!-- Loads <model-viewer> only on old browsers like IE11: -->
+  <script nomodule="" src="./_model-viewer_ Augmented Reality_files/model-viewer-legacy.js">
+  </script>
+
+
+
+</body></html>
